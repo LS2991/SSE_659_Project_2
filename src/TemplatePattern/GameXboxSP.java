@@ -7,6 +7,10 @@ public class GameXboxSP extends GameMain{
 	String game = "Xbox Game";
 	String gameBox = "Xbox Game Box";
 	
+	public GameXboxSP() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Microsoft Special Edition " + game);

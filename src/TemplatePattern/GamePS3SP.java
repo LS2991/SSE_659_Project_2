@@ -6,6 +6,10 @@ public class GamePS3SP extends GameMain{
 	String game = "PS3 Game";
 	String gameBox = "PS3 Game Box";
 	
+	public GamePS3SP() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Sony Special Edition " + game);

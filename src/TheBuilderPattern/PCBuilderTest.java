@@ -9,6 +9,7 @@ public class PCBuilderTest {
 		
 		PCPartsList pcParts;
 		PCBuilder builder = new PCBuilder();
+		Part tempP;
 		
 		Scanner in = new Scanner(System.in);
 		String input;
@@ -43,9 +44,7 @@ public class PCBuilderTest {
 			
 			System.out.print("\nCommand Entered: ");
 			
-			String name, partInput;
-			int price;
-			String[] tokens;
+			String[] tokens = {"", ""};
 			
 			input = in.nextLine();
 			input.toLowerCase();
@@ -54,85 +53,48 @@ public class PCBuilderTest {
 			switch(input) {
 			
 			case "1": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				partInput.trim();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setMotherboard(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setMotherboard(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "2": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setCpu(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setCpu(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "3": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setCpuFan(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setCpuFan(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "4": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setPowerSupply(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setPowerSupply(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "5": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setGpu(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setGpu(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "6": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setHardDrive(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setHardDrive(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "7": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setCdDrive(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setCdDrive(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "8": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setMonitor(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setMonitor(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "9": 	
-				System.out.println("Please input part information (name,price)");
-				partInput = in.nextLine();
-				tokens = partInput.split(",");
-				name = tokens[0];
-				price = Integer.parseInt(tokens[1]);
-				builder.setPartsCase(name, price);
+				tempP = addComponent(in, input, tokens);
+				builder.setPartsCase(tempP.getName(), tempP.getPrice());
 				break;
 				
 			case "b":
@@ -153,6 +115,18 @@ public class PCBuilderTest {
 			}
 		}
 
+	}
+	
+	public static Part addComponent(Scanner in, String partInput, String[]tokens) {
+		
+		System.out.println("Please input part information (name,price)");
+		
+		partInput = in.nextLine();
+		tokens = partInput.split(",");
+		System.out.println(tokens[0] + " " + tokens[1]);
+		
+		Part p = new Part(tokens[0], Integer.parseInt(tokens[1]));
+		return p;
 	}
 
 }

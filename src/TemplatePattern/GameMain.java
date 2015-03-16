@@ -3,6 +3,10 @@ package TemplatePattern;
 
 public abstract class GameMain {
 	
+	public GameMain() {
+		makeGamePackage();
+	}
+	
 	final void makeGamePackage()
 	{
 			

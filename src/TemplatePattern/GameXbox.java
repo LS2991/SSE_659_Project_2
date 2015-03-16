@@ -7,6 +7,10 @@ public class GameXbox extends GameMain{
 	String game = "Xbox Game";
 	String gameBox = "Xbox Game Box";
 	
+	public GameXbox() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Microsoft " + game);

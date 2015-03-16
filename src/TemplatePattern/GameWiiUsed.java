@@ -10,6 +10,10 @@ public class GameWiiUsed extends GameMain{
 	String game = "Wii Game";
 	String gameBox = "Wii Game Box";
 	
+	public GameWiiUsed() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a used Nintendo " + game);

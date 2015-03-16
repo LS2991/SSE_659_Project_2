@@ -7,6 +7,10 @@ public class Game3DS extends GameMain{
 	String game = "3DS Game";
 	String gameBox = "3DS Game Box";
 	
+	public Game3DS() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Nintendo " + game);

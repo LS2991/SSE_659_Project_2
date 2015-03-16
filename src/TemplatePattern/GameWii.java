@@ -8,6 +8,11 @@ public class GameWii extends GameMain{
 	String game = "Wii Game";
 	String gameBox = "Wii Game Box";
 	
+	
+	public GameWii() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Nintendo " + game);

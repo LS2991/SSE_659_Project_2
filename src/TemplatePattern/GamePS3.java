@@ -8,6 +8,10 @@ public class GamePS3 extends GameMain{
 	String game = "PS3 Game";
 	String gameBox = "PS3 Game Box";
 	
+	public GamePS3() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Sony " + game);

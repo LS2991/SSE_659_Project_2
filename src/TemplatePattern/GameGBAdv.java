@@ -10,6 +10,11 @@ public class GameGBAdv extends GameMain{
 	String game = "GameBoy Advance Game";
 	String gameBox = "GameBoy Advance Game Box";
 	
+	
+	public GameGBAdv() {
+		super();
+	}
+	
 	@Override
 	void getGType() {
 		System.out.println("Game is a Nintendo " + game);
