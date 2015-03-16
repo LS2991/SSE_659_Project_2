@@ -1,3 +1,4 @@
+package frameclass;
 
 import frameclass.AddComp;
 import frameclass.TextPrompt;
