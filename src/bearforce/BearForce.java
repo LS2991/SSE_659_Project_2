@@ -46,8 +46,10 @@ public class BearForce {
         boolean[] answers = questionnaire();
         
         for(int x = 0; x < responses.length; x++) {
-        	if(!answers[x])
+        	if(!answers[x]) {
         		System.out.print(responses[x]);
+        		break;
+        	}
         	if(x == responses.length - 1) {
         		System.out.println("Interview for Bearforce and AV");
         	}
