@@ -22,10 +22,12 @@ public class bearForceTester {
 	        for(int x = 0; x < responses.length; x++) {
 	        	if(!answers[x]) {
 	        		System.out.println(responses[x]);
+	        		assertTrue(true);
 	        		return;
 	        	}
 	        	if(x == responses.length - 1) {
 	        		System.out.println("Interview for Bearforce and AV");
+	        		assertTrue(true);
 	        		return;
 	        	}
 	        }
