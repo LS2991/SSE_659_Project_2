@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package players;
+package Players;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -22,17 +22,7 @@ public class Turnbase {
         return score;
     }
 
-    public void Turn1(int player) throws InterruptedException {
-        lock.lock();
-        try {
-            score += takeTurn.RollTurn(player);
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    public void Turn2(int player) throws InterruptedException {
-//Thread.sleep(1000);
+    public void Turn(int player) throws InterruptedException {
         lock.lock();
         try {
             score += takeTurn.RollTurn(player);

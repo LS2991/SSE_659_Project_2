@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package players;
+package Players;
 
 import java.util.Scanner;
 
@@ -30,41 +30,20 @@ public class Players {
     public static void Play() throws InterruptedException {
         Thread team1 = new Thread(new Runnable() {
             public void run() {
-                try {
-//turn1.setScore();
-                    turn1.Turn1(1);
-                    turn1.Turn2(2);
-                    scoreT1 = turn1.currentScore();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                };
+                scoreT1 = roll(turn1, 1);
             }
         });
         Thread team2 = new Thread(new Runnable() {
-            public void run() {
-                try {
-//turn2.setScore();
-                    turn2.Turn1(3);
-                    turn2.Turn2(4);
-                    scoreT2 = turn2.currentScore();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        	 public void run() {
+                 scoreT2 = roll(turn2, 2);
+             }
         });
         Thread team3 = new Thread(new Runnable() {
-            public void run() {
-
-                try {
-//turn3.setScore();
-                    turn3.Turn1(5);
-                    turn3.Turn2(6);
-                    scoreT3 = turn3.currentScore();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        	 public void run() {
+                 scoreT3 = roll(turn3, 3);
+             }   
         });
+        
         team1.start();
         team2.start();
         team3.start();
@@ -81,28 +60,36 @@ public class Players {
         System.out.println("Press the return key!");
         new Scanner(System.in).nextLine();
         if (scoreT1 >= 15) {
-            EndGameT1();
+            EndGame(1, scoreT1);
         } else if (scoreT2 >= 15) {
-            EndGameT2();
+            EndGame(2, scoreT2);
         } else if (scoreT3 >= 15) {
-            EndGameT3();
+            EndGame(3, scoreT3);
         } else {
             t++;
             System.out.println("Round " + t + "\n...");
             Play();
         }
     }
-
-    public static void EndGameT1() {
-
-        System.out.println("Team 1 Wins with score of " + scoreT1);
+    
+    public static int roll(Turnbase team, int teamNumber) {
+    	try {
+    		if(teamNumber != 0) {
+    			team.Turn(teamNumber * 2 - 1);
+    			team.Turn(teamNumber * 2);
+    		}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  	
+    	return team.currentScore();
+    	
     }
 
-    public static void EndGameT2() {
-        System.out.println("Team 2 Wins with score of " + scoreT2);
-    }
+    public static String EndGame(int teamNumber, int score) {
 
-    public static void EndGameT3() {
-        System.out.println("Team 3 Wins with score of " + scoreT3);
+        System.out.println("Team " + teamNumber + " Wins with score of " + score);
+        return ("Team " + teamNumber + " Wins with score of " + score);
+        
     }
-}
+ }
